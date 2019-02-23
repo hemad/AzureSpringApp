@@ -1,9 +1,4 @@
-# Maven
-# Build your Java project and run tests with Apache Maven.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
-
-trigger:
+#trigger:
 - master
 
 pool:
@@ -11,7 +6,7 @@ pool:
 
 steps:
 - task: Maven@3
-   inputs:
+  inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
@@ -20,16 +15,3 @@ steps:
     publishJUnitResults: false
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-- task: CopyFiles@2
-  displayName: 'Copy functional test jar to: $(TargetFolder)'
-  inputs:
-    SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: '**/*jar-with-dependencies.jar'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    flattenFolders: true
-- task: Docker@1
-   displayName: 'Build an image'
-   inputs:
-    azureSubscriptionEndpoint: 'HDDEV - Service Endpoint'
-    azureContainerRegistry: HDDEVacr.azurecr.io
-    imageName: 'HDDEV:$(Build.BuildId)'
