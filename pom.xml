@@ -59,7 +59,7 @@
     </properties>
 
     <build>
-	<finalName>ROOT</finalName>
+	<finalName>azureSpringApp</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
