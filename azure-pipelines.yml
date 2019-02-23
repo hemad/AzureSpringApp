@@ -20,3 +20,11 @@ steps:
     publishJUnitResults: false
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+
+steps:
+- task: Docker@1
+  displayName: 'Build an image'
+  inputs:
+    azureSubscriptionEndpoint: 'HDDev - Service Endpoint'
+    azureContainerRegistry: ftdevopacr.azurecr.io
+    imageName: 'HDDev:$(Build.BuildId)'
