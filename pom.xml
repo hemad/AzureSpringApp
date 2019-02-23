@@ -3,14 +3,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.microsoft</groupId>
-        <artifactId>ROOT</artifactId>
-        <relativePath>..</relativePath>
-        <version>1.0</version>
-    </parent>
-
-    <groupId>com.microsoft.azureSpringApp</groupId>
+     <groupId>com.microsoft.azureSpringApp</groupId>
     <artifactId>azureSpringApp</artifactId>
     <packaging>war</packaging>
     <name>Sample Spring App</name>
