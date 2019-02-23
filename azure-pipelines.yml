@@ -12,3 +12,11 @@ steps:
     publishJUnitResults: false
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+- task: AzureResourceGroupDeployment@2
+  displayName: 'Azure Deployment:Create Azure Container Registry'
+  inputs:
+    azureSubscription: 'HDDev - Service Endpoint'
+    resourceGroupName: 'HDDev-rg'
+    location: 'East Asia'
+    csmFile: '$(System.DefaultWorkingDirectory)/**/containerRegistry-template.json'
+    overrideParameters: '-registryName "HDDevacr" -registryLocation "South Central US" -registrySku "Standard"'
